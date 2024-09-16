@@ -173,7 +173,13 @@ Difficulty Preset::getQuestionsDiff()
 
 String Preset::getQuestion()
 {
-    return _question->getQuestion();
+    String question = _question->getQuestion();
+    if (question == "0")
+    {
+        _question = new NewQuestion(questionsDiff);
+        return _question->getQuestion();
+    }
+    return question;
 }
 
 bool Preset::checkQuestion(int answer)
