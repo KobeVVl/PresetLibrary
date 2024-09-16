@@ -48,7 +48,7 @@ public:
     Preset(uint8_t _amQuestions, Difficulty _diff, unsigned int _plantTime, unsigned int _time);
     Preset(uint8_t _amQuestions, Difficulty _diff, String _plantCode, unsigned int _time);
     Preset(uint8_t _amQuestions, Difficulty _diff, unsigned int _time);
-    Preset(PresetStruct str, String _code, String _plantCode);
+    Preset(PresetStruct *str, String _code, String _plantCode);
     Preset();
 
     PresetStruct toStruct();

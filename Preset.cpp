@@ -116,15 +116,15 @@ Preset::Preset(uint8_t _amQuestions, Difficulty _diff, unsigned int _time)
     time = _time;
 }
 
-Preset::Preset(PresetStruct str, String _code, String _plantCode)
+Preset::Preset(PresetStruct *str, String _code, String _plantCode)
 {
     code = _code;
-    bananaConfig = str.bananaConfig;
-    wire = str.wire;
-    amQuestions = str.amQuestions;
-    questionsDiff = str.questionsDiff;
+    bananaConfig = (*str).bananaConfig;
+    wire = (*str).wire;
+    amQuestions = (*str).amQuestions;
+    questionsDiff = (*str).questionsDiff;
 
-    plantTime = str.plantTime;
+    plantTime = (*str).plantTime;
     plantCode = _plantCode;
 
     _questionIndex = (amQuestions > 0) ? 0 : -1;
@@ -133,7 +133,7 @@ Preset::Preset(PresetStruct str, String _code, String _plantCode)
         _question = new NewQuestion(questionsDiff);
     }
 
-    time = str.time;
+    time = (*str).time;
 }
 
 Preset::Preset()
